@@ -7,18 +7,18 @@ $(function() {
 
   // **Parameters**
   // ------------
-  
+
   function set_settings() {
     window.settings = [];
-	
-	// **Number** **of** **Avatar** **Images**   
+
+	// **Number** **of** **Avatar** **Images**
 	// Number of avatars the user can choose from. Can be changed to any number, depending on how many avatars you would like to display. Default: 82
 	// The avatar images used in the online preview of the paradigm were created using by pickaface.net and due to their terms not available for redistribution. You should therefore create your own images. All images should be 250x250 pixels in size and carry the names "avatar_NUMBER.png" (e.g. avatar_1.png; "png" should be lower case; the numbers in the names should be consequtive, starting from 1). The number of avatars dependeds on the corresponding parameter. The images should be placed in folder "avatars," located in the main study folder extracted on your computer or server.
 
-    settings.numberofavatars = 10;
+    settings.numberofavatars = 81;
 
-	
-    // **Redirection**    
+
+    // **Redirection**
 	// After the introduction task is over participants should be redirected to a survey with manipulation checks and dependent measures, to subsequent tasks, or to further instructions. 
 	// If the study is called with a parameter for redirection, as explained in the documentation, this value is overwritten. 
 	// To the redirect link, the following information will be appended: (1) participant number, (2) condition, (3) username, (4) description submitted by participant. These variables can be extracted from the link, saved as data, and used for linking the Social Media Ostracism paradigm to subsequent tasks and measures. See documentation for more details.
@@ -52,71 +52,71 @@ $(function() {
 	
     // Usernames by which the participant will receive "likes"
 	// If group member names are changed, these should be changed accordingly.
-    settings.likes_by = ['John','AncaD','Sarah','Arjen','Jane','George','Dan','Heather','Ky']; 
+    settings.likes_by = ['Reza','AmirH','Aliz','Kaveh','Yasaman','Samira','MarMar','Mobi',]; 
   }
-  
+
   // -------------------
   // Above were the basic parameters you can adjust using the instructions. The remaining code is also annotated, but we do not recommend changing it, unless you are comfortable with web programming.
   // -------------------
-  
-  
-  // **Slide:** **Intro**     
+
+
+  // **Slide:** **Intro**
   // With instructions regarding the task. The intro container is shown, the continue calls the next slide when clicked.
   function init_intro() {
   	$('#intro').show();
   	$('#submit_intro').on('click',function() {
 			$('#intro').hide();
-  			init_name();  			
+  			init_name();
   	});	
   }
-  
-
-  // **Slide:** **Username**       
-  // Note: Only alphanumeric usernames without spaces are accepted
-  
-  function init_name() {
-
-  	$('#name').show();
-
-    
-  	$('#submit_username').on('click',function() {
-
-  		var error = 0;
-  		var uname = $('#username').val();
-
-  		if(uname == "") {
-  			error = 1;
-  			errormsg = 'Please enter text';
-  			uname = "undefined";
-  		}
-  		if(not_alphanumeric(uname)) {
-  			error = 1;
-  			errormsg = 'Please only letters (and no spaces)';
-  		}  		
-
-  		if(error == 0) {
-			$('#name').hide();
-			window.username = $('#username').val();
-  			init_avatar();  			
-  		} else {
-  			alertify.log(errormsg,"error");
-  		}
 
 
-  	});
-  }
+// **Slide:** **Username**
+// Note: Only alphanumeric usernames without spaces are accepted
 
-  // **Slide:** **Avatar**       
+function init_name() {
+
+  $('#name').show();
+
+
+  $('#submit_username').on('click',function() {
+
+    var error = 0;
+    var uname = $('#username').val();
+
+    if(uname == "") {
+      error = 1;
+      errormsg = 'لطفا نام خود را وارد کنید.';
+      uname = "undefined";
+    }
+    if(not_alphanumeric(uname)) {
+      error = 1;
+      errormsg = 'لطفا فقط از کلمات استفاده کنید(از فاصله استفاده نکنید).';
+    }
+
+    if(error == 0) {
+    $('#name').hide();
+    window.username = $('#username').val();
+      init_avatar();
+    } else {
+      alertify.log(errormsg,"error");
+    }
+
+
+  });
+}
+
+  // **Slide:** **Avatar**
   // Avatar slide in which the participant is asked to select an avatar
-   
+
   function init_avatar() {
   	$('#avatar').show();
 
-    var avatars = window.settings.numberofavatars;    
-  	for(var i=0; i<avatars; i++) 
-  	{ 
+    var avatars = window.settings.numberofavatars;
+  	for(var i=0; i<avatars; i++)
+  	{
   		$('.avatars').append('<img id="avatar_' + i+ '" src="avatars/avatar_' + i + '.png" class="avatar" />');
-  	} 
+  	}
 
   	$('.avatar').on('click', function() {
   		$('.avatar').removeClass('selected');
@@ -128,7 +128,7 @@ $(function() {
   			$('#avatar').hide();
   			window.avatar = $('.selected').attr('id');
   			window.avatarexport = /avatar_([^\s]+)/.exec(window.avatar)[1];
-    			init_text();  			
+    			init_text();
     		} else {
     			alertify.log("Please select an avatar","error");
     		}
@@ -138,39 +138,42 @@ $(function() {
 
 
   // **Slide:** **Description**   
-  function init_text() {
-  	$('#text').show();
+function init_text() {
+  $('#text').show();
 
-  	$("#description").keyup(function(){
-  	  $("#count").text("Characters left: " + (400 - $(this).val().length));
-  	});
+  $("#description").keyup(function(){
+      $("#count").text("کاراکترهای باقی‌مانده: " + (400 - $(this).val().length));
+  });
 
-  	$('#submit_text').on('click',function() {
+  $('#submit_text').on('click', function() {
+      var error = 0;
+      var errormsg = '';
 
-  		var error = 0;
-  		if($('#description').val() == "") {
-  			error = 1;
-  			errormsg = 'Please enter text';
-  		}
-  		if($('#description').val() !== "" && $('#description').val().length < 140) {
-		
-  			error = 1;
-  			errormsg = 'Please write a bit more';
-			}
-  		if($('#description').val().length > 401) {
-  		
-  			error = 1;
-  			errormsg = 'Please enter less text';
-  		}  		
-  		if(error == 0) {
-  			$('#text').hide();
-  			window.description = $('#description').val();
-    			init_fb_intro();  			
-    		} else {
-    			alertify.log(errormsg,"error");
-    		}
-  	});  	
-  }
+      if ($('#description').val() == "") {
+          error = 1;
+          errormsg = 'لطفا متن را وارد کنید.';
+      }
+      if ($('#description').val() !== "" && $('#description').val().length < 140) {
+          error = 1;
+          errormsg = 'لطفا کمی بیشتر بنویسید.';
+      }
+      if ($('#description').val().length > 401) {
+          error = 1;
+          errormsg = 'لطفا متن کمتری وارد کنید.';
+      }
+      if (error == 0) {
+          $('#text').hide();
+          window.description = $('#description').val();
+          init_fb_intro();
+      } else {
+          alertify.log(errormsg, "error");
+      }
+  });
+
+  // تنظیم جهت متن به راست به چپ
+  $('#description').css('direction', 'rtl');
+}
+
 
 
   // **Slide:** **Instructions**   
@@ -195,7 +198,7 @@ $(function() {
   	setTimeout(function() {
   		$('#msg_all_done').show();
   		$("#loader").hide();
-  	}, 8000);
+  	}, 15000);
 	
   	$('#submit_fb_login').on('click',function() {
 			$('#fb_login').hide();
@@ -408,7 +411,7 @@ $(function() {
   // Function to check letters and numbers
   // via http://www.w3resource.com/javascript/form/letters-numbers-field.php
   function not_alphanumeric(inputtxt) {
-    var letterNumber = /^[0-9a-zA-Z]+$/;
+    var letterNumber = /^[0-9a-zA-Zا-ی]+$/;
     if(inputtxt.match(letterNumber)) {
         return false;
       } else { 
