@@ -1,13 +1,15 @@
-<html lang="en"><!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
 
- <!-- 
-/* 
-  
+ <!--
+/*
+
 This document contains all instructions which appear in the paradigm, along with some basic functionality. You can change all text by following the instructions below. 
 
 If you don't have experience with programming, it is important that you alter only the plain text, as indicated in the instructions, and leave any functional elements intact.
-*/ 
---> 
+*/
+-->
 
 <meta charset="utf-8">
 <title>Intro</title>
@@ -45,111 +47,114 @@ If you don't have experience with programming, it is important that you alter on
 
 
 <div id="intro" style="display:none;" class="instr">
- <!-- 
-/* 
-  
+ <!--
+/*
+
 **Intro**
 ---------
 You can edit this text using basic HTML elements for styling (e.g., <br>, <h3>).
 
-*/ 
---> <h3>Welcome to this study</h3>
+*/
 
-  You will complete a number of simple tasks, together with other people, <br>
-  with whom you will be connected via the internet. 
+-->
+  <h3>به این پژوهش خوش آمدید</h3>
+
+  <br>
+  در این پژوهش، شما با اتصال به اینترنت، تعدادی تکالیف ساده را با افراد دیگر، همزمان به صورت آنلاین، انجام خواهید داد.
   <br><br>
-  First, all participants in the study will select personal "avatars" and <br>
-  write short texts to introduce themselves.
+  در ابتدا، تمام آزمودنی‌ها آواتارهای شخصی خودشان را انتخاب می‌کنند و همینطور متن کوتاهی درباره خود می‌نویسند.
   <br><br>
-  Before beginning the tasks, you will spend 3 minutes with the other <br>
-  people. During this time, you will be able to read and react to <br>
-  each-other's brief introductions.
+  پیش از شروع تکالیف، شما به مدت 3 دقیقه با دیگران ارتباط برقرار خواهید کرد.
+  در این مدت، شما قادر خواهید بود معرفی کوتاه افراد درباره خودشان را بخوانید و به آنها واکنش نشان دهید.
   <br><br>
-  Specific instructions will follow.<br><br>
-  <b>Thank you!</b><br><br>
+  دستورالعمل‌های خاص دنبال خواهد شد.
+  <br><br>
+  <b>موفق باشید!</b>
+  <br><br>
   <button type="submit" id="submit_intro">Continue</button>
 </div>
 
 
 
+
 <div id="name" style="display:none;" class="instr">
-<!-- 
-/* 
-  
+<!--
+/*
+
 **Username**
 ---------
 You can edit the instructions text for entering usernames below.
 
-*/ 
+*/
 -->
-	<h3>Please enter your name</h3>
-	Could be your first name, nickname, or initials<br><br>
-	
+	<h3>لطفا نام خود را به انگلیسی وارد کنید.</h3>
+	میتواند نام کوچک یا نام مستعار شما باشد.<br><br>
+
 	<input type="text" id="username"  autocomplete="off" /><br>	<br>
 	<button type="submit"  id="submit_username">Submit</button>
 </div>
 
 
 
-<div id="avatar" style="display:none;">	
-<!-- 
-/* 
-  
+<div id="avatar" style="display:none;">
+<!--
+/*
+
 **Avatar choice**
 ---------
 You can edit the instructions text. The text "Your choice of avatar will not be recorded or analyzed" depends on whether you record the choice of avatar.
 
-*/ 
--->	<h3>Please select an avatar</h3>
-	This avatar will represent you during the group task, but will not be linked to any of your responses. <br>Your choice of avatar will not be recorded or analyzed.
+*/
+-->	<h3>لطفا یک آواتار را انتخاب کنید.</h3>
+هنگام انجام تکلیف گروهی، این آواتار باز نمای شما خواهد بود؛ اما به هیچکدام از پاسخ های شما مرتبط نخواهد شد.<br>آواتار منتخب شما، ضبط یا آنالیز نخواهد شد.
 	<br><br>
 	<div class="avatars"></div>
 	<br><button type="submit"  id="submit_avatar">Submit</button>
 	<br><br>
-</div>	
+</div>
 
 
-<div id="text" style="display:none;" class="instr">	
-<!-- 
-/* 
-  
+<div id="text" style="display:none;" class="instr">
+<!--
+/*
+
 **Description entry**
 ---------
-You can edit the instructions text. 
+You can edit the instructions text.
 
-*/ 
--->	<h3>Please introduce yourself </h3>
-	Please write a paragraph in which you introduce yourself to the rest of the group. <br>
-	Write something you would like to tell about yourself - anything you want to share.
-	<br><br>	
+*/
+-->	<h3>لطفا خودتان را معرفی کنید.</h3>
+	لطفا یک پاراگراف درباره خودتان بنویسید که معرف شما برای باقی اعضای گروه باشد.<br>
+  هرچه که دوست دارید درباره خودتان بگویید؛ بنویسید.
+  حداقل 140 کاراکتر وارد نمایید.
+	<br><br>
 	<textarea id="description" autocomplete="off" /></textarea><br>
 	<span id="count">Characters left: 400</span><br><br>
 	<button type="submit" id="submit_text">Submit</button>
-</div>	
+</div>
 
 
 
 <div id="fb_intro" style="display:none;" class="instr">
-<!-- 
-/* 
-  
+<!--
+/*
+
 **Task instructions**
 ---------
 You can edit the instructions text. The prompt to try and form an impression of the other players is recommended in all ostacism paradigms. Defining the action of "liking" is also recommended. The information regarding task duration can be adjusted to match the actual duration you have set.
 
-*/ 
--->  <h3>Group Introduction</h3>
-  Soon after connecting, you should be able to see the other people's descriptions. <br>
-  You can read and react to the short introduction they wrote about themselves, by <br>
-  clicking a "like" button, similar to the "like" button on Facebook ("favorite" on Twitter,<br> 
-  &hearts; in Tumblr and Instagram, etc.) <br>
+*/
+-->  <h3>معرفی گروه</h3>
+  بعد از برقراری اتصال آنلاین، شما میتوانید توضیحات افراد دیگر را مشاهده کنید.<br>
+  شما میتوانید معرفی های کوتاه شرکت کننده های دیگر را درباره خودشان، بخوانید و به آنها واکنش نشان دهید.<br>
+ برای این امر، میتوانید بر روی "Like" کلیک کنید.<br>
   <br>
-  Even though your interaction is minimal, please try to form an impression of the <br>
-  people in the group. Try to imagine them in real life - how they might look <br>
-  or sound, what kind of people they are, how you would get along with them.
-  <br><br>The task will last 3 minutes and is very important to the study, so please be attentive,
-  <br>without switching pages, or doing unrelated tasks. Questions about the other people <br>might follow.
-  <br><br><b>If these instructions are clear, you can proceed to log in.</b><br>
+  با وجود اینکه تعاملات شما محدود است <br>
+  سعی کنید آنها را در زندگی واقعی تصور کنید، مثلا چه ظاهر یا صدایی دارند،
+   چه نوع افرادی هستند و چگونه با آنها کنار می آیید. <br>
+  <br><br> این کار 3 دقیقه طول می کشد و برای مطالعه بسیار مهم است
+  <br> بنابراین لطفاً از از صفحه خارج نشوید و سعی کنید پروفایل همه افراد را بخوانید. ممکن است بعدا از شما سوالاتی درباره افراد آنلاین حاظر در چت روم پرسیده شود.
+  <br><br><b> اگر این دستورالعمل‌ها شفاف هستند، میتوانید با کلیک بر روی "Log in" ادامه دهید.</b><br>
   <br>
   <button type="submit"  id="submit_fb_intro">Log in</button>
 </div>
@@ -158,36 +163,37 @@ You can edit the instructions text. The prompt to try and form an impression of 
 
 <div id="fb_login" style="display:none;" class="instr">
   <h3>Establishing connection</h3>
-  Please wait while you are being connected to the other participants in your group.<br><br>
+  لطفا تا زمان اتصال با هم‌گروهی های دیگر خود صبر کنید.<br><br>
   <img class="load" src='ajax-loader.gif' id="loader">
   <div id="msg_all_done" style="display:none;">
   <br>
-  	<b>All participants are now connected and you are ready to proceed.</b><br><br>
+  	<b>تمام آزمودنی ها متصل شدند و شما میتوانید ادامه دهید.</b><br><br>
   	<button type="submit"  id="submit_fb_login">Continue</button>
   </div>
 </div>
 
 
-<!-- 
-/* 
-  
+<!--
+/*
+
 **In-task instructions and timer**
 ---------
-You can edit the instructions text. 
+You can edit the instructions text.
 
-*/ 
+*/
 -->
 <div id="task" style="display:none;">
-	<div id="countdown"><span class="secs" style="display: none;"></span>You can click "Like" if you have enjoyed somebody's description<br><br>time left:<br><span id="timer" class="cntr label label-info"></span>
+	<div id="countdown"><span class="secs" style="display: none;"></span>اگر از معرفی شخصی لذت بردید؛ میتوانید با کلیک بر روی "Like" آنها را تایید کنید.<br><br>زمان باقی مانده:<br><span id="timer" class="cntr label label-info"></span>
 	<br>
-	<button type="submit" id='final-continue' style="display:none;">Continue</button>	
+	<button type="submit" id='final-continue' style="display:none;">Continue</button>
 	</div>
 </div>
 
 
+
 <script type="template/text" id="usertmp">
   {{#posts}}
-    
+
     <div class="entry">
     <div class="tophalf">
 
@@ -200,14 +206,14 @@ You can edit the instructions text.
 
     	<br style="clear:both;">
 
-    </div>	
+    </div>
 
     <div class="bottomhalf">
     	Likes <span class="badge badge-custom userslikes" data-likes="{{likes}}" data-usernames="{{usernames}}">0</span>
     </div>
     </div>
 
-  {{/posts}}  
+  {{/posts}}
 </script>
 
 
@@ -218,15 +224,15 @@ You can edit the instructions text.
 
     	<img src="{{avatar}}" class="avatar">
         <h3>{{username}}</h3>
-    	
+
     	<div class="main">
-    		
+
     		<p>{{text}}</p>
     	</div>
 
     	<br style="clear:both;">
 
-    </div>	
+    </div>
 
     <div class="bottomhalf">
     	Likes <span class="badge badge-custom otherslikes" data-likes="{{likes}}">0</span>
@@ -234,7 +240,7 @@ You can edit the instructions text.
     </div>
 
     </div>
-  {{/posts}}  
+  {{/posts}}
 </script>
 
 
